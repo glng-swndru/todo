@@ -1,0 +1,22 @@
+# Definisikan root direktori untuk proyek
+root = "."
+# Direktori sementara yang digunakan oleh build system
+tmp_dir = "tmp"
+
+# Konfigurasi untuk proses build
+[build]
+    # Nama output binary yang akan dihasilkan
+    bin = "main"
+    # Perintah untuk membangun proyek menggunakan Go
+    # {{.Output}} dan {{.Input}} adalah placeholder yang akan digantikan
+    # dengan nilai yang sesuai saat perintah dijalankan
+    cmd = "go build -o {{.Output}} {{.Input}}"
+    
+    # File atau direktori yang dikecualikan dari proses build
+    exclude = ["tmp/*", "client/*"]
+    
+    # File yang harus diikutsertakan dalam proses build
+    include = ["**/*.go"]
+    
+    # File atau direktori yang diabaikan dalam proses build
+    ignore = ["tmp/*"]
